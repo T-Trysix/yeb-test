@@ -43,7 +43,7 @@ public class CodeGenerator {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/yeb-generator/src/main/java");
-        gc.setAuthor("zhanglishen"); //作者
+        gc.setAuthor("LL"); //作者
         gc.setOpen(false); //是否打开目录
         gc.setBaseResultMap(true);//xml开启BaseResultMap
         gc.setBaseColumnList(true);//xml 开启BaseColumn
