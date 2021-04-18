@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -33,6 +34,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers(
+                "/login",
+                "/logout",
+                "/css/**",
+                "/js/**",
+                "/index.htnl",
+                "facicon.ico",
+                "/doc.html",
+                "/webjars/**",
+                "/swagger-resources/**",
+                "/v2/api-docs/**"
+        );
+    }
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         //使用JWT，不需要csrf
         http.csrf()
@@ -43,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 //允许登录访问
-                .antMatchers("/login","/logout")
+                .antMatchers("/login", "/logout")
                 .permitAll()
                 //除了上面所有请求都要求认证
                 .anyRequest()
@@ -65,7 +82,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService() {
         return username -> {
             Admin admin = adminService.getAdminByUserName(username);
-            if (null != admin){
+            if (null != admin) {
                 return admin;
             }
             return null;
