@@ -42,6 +42,15 @@ public class LoginController {
         admin.setPassword(null);
         return admin;
     }
+    /*public RespBean getInfo(Principal principal) {
+        if (null == principal) {
+            return RespBean.error("用户信息获取失败");
+        }
+        String username = principal.getName();
+        Admin admin = adminService.getAdminByUserName(username);
+        admin.setPassword(null);
+        return RespBean.success("Success",admin);
+    }*/
 
     @ApiOperation(value = "退出登录")
     @PostMapping("logout")
