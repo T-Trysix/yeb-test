@@ -22,7 +22,7 @@ public class CaptchaController {
     @Autowired
     private DefaultKaptcha defaultKaptcha;
 
-    @ApiOperation("验证码")
+    @ApiOperation(value = "验证码",produces = "image/jpeg")
     @GetMapping("/captcha")
     public void captcha(HttpServletRequest request, HttpServletResponse response) {
         //定义response输出类型为image/jpeg
