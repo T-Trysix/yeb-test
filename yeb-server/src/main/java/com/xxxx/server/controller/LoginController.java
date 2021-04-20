@@ -40,6 +40,7 @@ public class LoginController {
         String username = principal.getName();
         Admin admin = adminService.getAdminByUserName(username);
         admin.setPassword(null);
+        admin.setRoles(adminService.getRolesByAdminId(admin.getId()));
         return admin;
     }
     /*public RespBean getInfo(Principal principal) {
@@ -49,6 +50,7 @@ public class LoginController {
         String username = principal.getName();
         Admin admin = adminService.getAdminByUserName(username);
         admin.setPassword(null);
+        admin.setRoles(adminService.getRolesByAdminId(admin.getId()));
         return RespBean.success("Success",admin);
     }*/
 
