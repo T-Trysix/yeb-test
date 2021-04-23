@@ -1,4 +1,4 @@
-package com.xxxx.server.pojo;
+package com.xxxx.server.param;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

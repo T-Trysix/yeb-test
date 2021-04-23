@@ -1,7 +1,7 @@
 package com.xxxx.server.controller;
 
 import com.xxxx.server.pojo.Admin;
-import com.xxxx.server.pojo.AdminLoginParam;
+import com.xxxx.server.param.AdminLoginParam;
 import com.xxxx.server.pojo.RespBean;
 import com.xxxx.server.service.IAdminService;
 import io.swagger.annotations.Api;
