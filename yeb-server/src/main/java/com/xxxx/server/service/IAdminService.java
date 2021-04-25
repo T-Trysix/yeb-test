@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author zhanglishen
@@ -21,6 +21,7 @@ public interface IAdminService extends IService<Admin> {
 
     /**
      * 登录之后返回token
+     *
      * @param username
      * @param password
      * @param code
@@ -31,6 +32,7 @@ public interface IAdminService extends IService<Admin> {
 
     /**
      * 根据用户名获取用户信息
+     *
      * @param username
      * @return
      */
@@ -38,9 +40,19 @@ public interface IAdminService extends IService<Admin> {
 
     /**
      * 根据用户ID查询角色列表
+     *
      * @param adminId
      * @return
      */
     List<Role> getRolesByAdminId(Integer adminId);
 
+    /**
+     * 获取所有操作员
+     *
+     * @param keywords
+     * @return
+     */
+    List<Admin> getAllAdmins(String keywords);
+
+    RespBean updateAdminRole(Integer adminId, Integer[] rids);
 }
