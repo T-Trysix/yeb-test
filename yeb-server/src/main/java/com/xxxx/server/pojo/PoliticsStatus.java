@@ -1,24 +1,29 @@
 package com.xxxx.server.pojo;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import cn.afterturn.easypoi.excel.annotation.Excel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * <p>
- *
+ * 
  * </p>
  *
  * @author zhanglishen
- * @since 2021-04-14
+ * @since 2020-11-14
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
+@RequiredArgsConstructor
+@EqualsAndHashCode(callSuper = false,of = "name")
+@Accessors(chain = true)
 @TableName("t_politics_status")
 @ApiModel(value="PoliticsStatus对象", description="")
 public class PoliticsStatus implements Serializable {
@@ -30,6 +35,8 @@ public class PoliticsStatus implements Serializable {
     private Integer id;
 
     @ApiModelProperty(value = "政治面貌")
+    @Excel(name = "政治面貌",width = 15)
+    @NonNull
     private String name;
 
 

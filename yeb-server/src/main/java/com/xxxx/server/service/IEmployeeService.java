@@ -6,10 +6,11 @@ import com.xxxx.server.pojo.RespBean;
 import com.xxxx.server.pojo.RespPageBean;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author zhanglishen
@@ -19,6 +20,7 @@ public interface IEmployeeService extends IService<Employee> {
 
     /**
      * 获取所有员工（分页）
+     *
      * @param currentPage
      * @param size
      * @param employee
@@ -29,14 +31,24 @@ public interface IEmployeeService extends IService<Employee> {
 
     /**
      * 获取工号
+     *
      * @return
      */
     RespBean maxWorkId();
 
     /**
      * 添加员工
+     *
      * @param employee
      * @return
      */
     RespBean insertEmployee(Employee employee);
+
+    /**
+     * 查询员工
+     *
+     * @param id
+     * @return
+     */
+    List<Employee> getEmployee(Integer id);
 }

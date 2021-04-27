@@ -72,6 +72,13 @@
             <artifactId>kaptcha</artifactId>
             <version>0.0.9</version>
         </dependency>
+        <!--导数导入数据 依赖-->
+        <!--easy poi-->
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-spring-boot-starter</artifactId>
+            <version>4.1.3</version>
+        </dependency>
     </dependencies>
 
 </project>
